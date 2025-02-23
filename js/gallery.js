@@ -85,7 +85,7 @@ sectionGallery.addEventListener('click', (event) => {
     console.log(bigImage);
 
     const sample = basicLightbox.create(`
-    <img src="${bigImage}" width="800" height="600">
+    <img src="${bigImage}" width="1112" height="640">
   `);
 
   sample.show();
