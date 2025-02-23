@@ -64,3 +64,29 @@ const images = [
   },
 ];
 
+const sectionGallery = document.querySelector('.gallery');
+sectionGallery.innerHTML = images.map(({ preview, original, description }) => `
+<li class="gallery-item">
+  <a class="gallery-link" href="${original}">
+    <img
+      class="gallery-image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</li>
+`).join('');
+
+sectionGallery.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (!event.target.classList.contains(`gallery-image`)) return;
+    const bigImage = event.target.dataset.source;
+    console.log(bigImage);
+
+    const sample = basicLightbox.create(`
+    <img src="${bigImage}" width="800" height="600">
+  `);
+
+  sample.show();
+});
